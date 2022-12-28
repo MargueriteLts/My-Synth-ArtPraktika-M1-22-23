@@ -1,0 +1,408 @@
+@import 'basics.scss';
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.noScrollBar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.noScrollBar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.prototype_body_21 {
+  background: var(--medium-grey);
+  font-family: Helvetica, Arial, sans-serif;
+  color: white;
+  // padding: 1%;
+  // overflow: hidden;
+}
+
+#prototype_21 {
+  width: 100vw;
+  height: 100vh;
+  margin: auto;
+  font-family: NHU;
+  text-transform: uppercase;
+
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  // justify-content: center;
+
+  /////////////////////////////////////////////////////// FRAME
+
+  .Frame {
+    // height: 100vh;
+    // background: var(--surfaceGradient);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    // justify-content: center;
+    flex-grow: 1;
+
+    .GradientBackground {
+      position: absolute;
+      z-index: -2;
+      height: 100vh;
+      width: 100%;
+      background: var(--surfaceGradient);
+    }
+
+    .MusicContainerBackground {
+      position: absolute;
+      z-index: -1;
+      height: 100vh;
+      width: 100%;
+      background-image: asset-url('BG.svg');
+      // background: var(--surfaceGradient);
+      // background-image: asset-url('maket.jpg');
+      background-size: cover;
+      // background-size: contain;
+      background-repeat: no-repeat;
+      background-position: top;
+    }
+
+    .MusicContainer {
+      display: flex;
+      flex-direction: column;
+      // align-items: stretch;
+      align-items: center;
+      flex-grow: 1;
+      justify-content: center;
+      // width: 100%;
+      // height: 100%;
+      // margin: auto;
+      // left: 0;
+      // right: 0;
+      // top: 0;
+      // bottom: 0;
+
+      .StartButton {
+        // width: 1400px;
+        // width: 80vw;
+        // height: 190px;
+        width: 800px;
+        height: 800px;
+        // height: 100%;
+        background-image: asset-url('StartButton.svg');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center center;
+        cursor: pointer;
+      }
+
+      .Header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100vw;
+        // height: 230px;
+
+        .ButtonStopPlay {
+          display: block;
+          position: absolute;
+          top: 20px;
+          right: 20px;
+          width: 44px;
+          height: 44px;
+          // background-color: var(--acid-green);
+          background-image: asset-url('playAgain.svg');
+          background-size: contain;
+          background-repeat: no-repeat;
+          background-position: center;
+          cursor: pointer;
+
+          &.isPlaying {
+            // background-color: red;
+            background-image: asset-url('stop.svg');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+          }
+        }
+
+        .Title {
+          width: 90%;
+          height: 300px;
+          background-image: asset-url('TitleMelodies.svg');
+          background-size: contain;
+          background-repeat: no-repeat;
+          background-position: center center;
+          // filter: drop-shadow(0 0 0.5rem var(--white-t3));
+        }
+
+        .toggleUIButton {
+          top: 25%;
+          align-items: center;
+          justify-content: center;
+          margin-left: auto;
+          margin-right: auto;
+          left: 0;
+          right: 0;
+          width: 700px;
+          height: 40px;
+          padding-top: 10px;
+          margin-bottom: 20px;
+          // color: var(--black);
+          background: var(--medium-grey);
+          text-align: center;
+          font-size: 30px;
+          line-height: 30px;
+          border-radius: 20px;
+          cursor: pointer;
+        }
+      }
+
+      .MelodiesContainer {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        flex-basis: 25%;
+        flex-grow: 1;
+
+        .MelodyContainer {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+
+          .ChannelStart {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            // align-items: stretch;
+            align-items: center;
+            justify-content: center;
+
+            .ButtonMelody1 {
+              cursor: pointer;
+              width: 20vw;
+              height: 20vw;
+              background-image: asset-url('mute1.svg');
+              background-size: contain;
+              background-repeat: no-repeat;
+              background-position: center;
+
+              &:hover {
+                filter: drop-shadow(0 0 0.5rem var(--white-t3));
+              }
+
+              &.active {
+                background-image: asset-url('play1.svg');
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+              }
+            }
+
+            .ButtonMelody2 {
+              cursor: pointer;
+              width: 20vw;
+              height: 20vw;
+              background-image: asset-url('mute2.svg');
+              background-size: contain;
+              background-repeat: no-repeat;
+              background-position: center;
+
+              &:hover {
+                filter: drop-shadow(0 0 0.5rem var(--white-t3));
+              }
+
+              &.active {
+                background-image: asset-url('play2.svg');
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+              }
+            }
+
+            .SC_Slider {
+              .SliderTitle {
+                @include H3;
+              }
+            }
+          }
+
+          .SC_Slider {
+            .SliderTitle {
+              @include H1;
+            }
+          }
+
+          .ToggleButtonSetTitle {
+            @include H1;
+          }
+
+          .ChorusEffect {
+            .ToggleButtonSetTitle {
+              h3 {
+                display: block;
+                font-size: 1em;
+                font-weight: bold;
+              }
+            }
+            .SC_Slider {
+              .SliderTitle {
+                h3 {
+                  display: block;
+                  font-size: 1em;
+                  font-weight: bold;
+                }
+              }
+            }
+          }
+
+          .PingPongDelayEffect {
+            .SC_Slider {
+              .SliderTitle {
+                h3 {
+                  display: block;
+                  font-size: 1em;
+                  font-weight: bold;
+                }
+              }
+            }
+          }
+
+          .Channel {
+            .SC_Slider {
+              .SliderTitle {
+                h3 {
+                  display: block;
+                  font-size: 1em;
+                  font-weight: bold;
+                }
+              }
+            }
+          }
+
+          .SC_ToggleButton {
+            padding: 8px 10px;
+            padding: 1em 2em;
+            font-size: 14px;
+            text-align: center;
+            text-transform: capitalize;
+            background-color: var(--white);
+            color: var(--black);
+            cursor: pointer;
+
+            &:hover:not(.active) {
+              background-color: var(--light-grey);
+            }
+
+            &.active {
+              font-weight: 800;
+              color: var(--black);
+              background-color: var(--dark-green);
+              cursor: default;
+            }
+          }
+
+          .SC_Slider {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+
+            input[type='range'] {
+              -webkit-appearance: none;
+              width: 100%;
+
+              &::-webkit-slider-runnable-track {
+                height: 4px;
+                background: var(--white);
+                border: none;
+              }
+
+              &::-webkit-slider-thumb {
+                -webkit-appearance: none;
+                border: none;
+                height: 16px;
+                width: 16px;
+                border-radius: 50%;
+                background: var(--dark-green);
+                margin-top: -6px;
+                cursor: pointer;
+              }
+
+              &:focus {
+                outline: none;
+
+                &::-webkit-slider-runnable-track {
+                  background: var(--white);
+                }
+              }
+            }
+          }
+
+          .Select {
+            // margin: 30px 0;
+            background: white;
+            color: black;
+            cursor: pointer;
+
+            .currentValue {
+              padding: 10px 20px;
+              line-height: 30px;
+            }
+
+            .options {
+              .SelectItem {
+                // padding: 10px 20px;
+                line-height: 30px;
+
+                &:hover {
+                  background: lightgrey;
+                }
+
+                &.active {
+                  background: var(--acid-green);
+                }
+              }
+            }
+          }
+        } //MELODYCONTAINER
+      } //MelodiesCONTAINER
+
+      // .MySurface {
+      //   // padding: 50px;
+      //   // display: flex;
+      //   width: 100%;
+      //   flex-grow: 1;
+      //   // align-items: stretch;
+
+      .Surface {
+        position: relative;
+        width: 100%;
+        // height: 100px;
+        flex-grow: 1;
+        // background: var(--surfaceGradient);
+        // background: var(--white-t1);
+        // filter: drop-shadow(0 0 0.5rem var(--black-t1));
+        // display: flex;
+        // justify-content: center;
+        // align-items: stretch;
+        // height: 100%;
+
+        border-radius: 50px;
+        // border: solid 1px white;
+
+        .pointer {
+          position: absolute;
+          width: 100px;
+          height: 100px;
+          border-radius: 50px;
+          background: red;
+          cursor: pointer;
+        }
+      }
+      // }
+    }
+  } //FRAME
+} //PROTOTYPE24
